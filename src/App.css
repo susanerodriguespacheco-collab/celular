@@ -1,0 +1,114 @@
+/* Cores e fontes do app */
+:root {
+  --fundo-mesa: #d9dee3;
+  --tela: #f6f7f9;
+  --superficie: #ffffff;
+  --texto: #15202b;
+  --texto-suave: #5b6772;
+  --linha: #e3e7eb;
+  --verde: #1d6b4f;
+  --verde-claro: #e3f1ea;
+  --sos: #c8442b;
+  --fonte: "Nunito Sans", "Segoe UI", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fundo-mesa); font-family: var(--fonte); color: var(--texto); }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--verde); outline-offset: 2px; }
+
+.mesa { height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+
+/* Aparelho */
+.celular {
+  position: relative; width: 380px; height: 800px; flex: none; transform-origin: center;
+  background: var(--tela); border: 11px solid #101418; border-radius: 48px; overflow: hidden;
+  display: flex; flex-direction: column; box-shadow: 0 24px 60px rgba(16, 20, 24, 0.25);
+}
+.status { display: flex; justify-content: space-between; align-items: center; padding: 14px 26px 6px; font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.status-icones { display: flex; gap: 6px; align-items: center; fill: currentColor; }
+.conteudo { flex: 1; overflow-y: auto; scrollbar-width: none; padding: 8px 20px 16px; display: flex; flex-direction: column; gap: 16px; }
+
+.conteudo::-webkit-scrollbar { display: none; }
+
+/* Início */
+.relogio { padding: 18px 4px 4px; }
+.relogio-hora { margin: 0; font-size: 72px; font-weight: 300; line-height: 1; letter-spacing: -2px; font-variant-numeric: tabular-nums; }
+.relogio-data { margin: 6px 0 0; font-size: 17px; color: var(--texto-suave); font-weight: 600; }
+
+.cartao-remedio {
+  display: flex; align-items: center; gap: 14px; text-align: left; width: 100%;
+  background: var(--superficie); border: 1px solid var(--linha); border-radius: 20px; padding: 14px 16px;
+}
+.cartao-icone { width: 46px; height: 46px; border-radius: 14px; background: var(--verde-claro); color: var(--verde); display: grid; place-items: center; flex: none; }
+.cartao-nome { display: block; font-size: 19px; font-weight: 800; }
+.cartao-hora { margin-left: auto; font-size: 22px; font-weight: 700; color: var(--verde); font-variant-numeric: tabular-nums; }
+.rotulo { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--texto-suave); margin: 0; }
+
+.apps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.app { background: none; border: 0; padding: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; }
+.app-icone { width: 62px; height: 62px; border-radius: 20px; background: var(--superficie); border: 1px solid var(--linha); color: var(--texto); display: grid; place-items: center; }
+
+.sos { border: 0; border-radius: 18px; background: var(--sos); color: #fff; font-weight: 800; font-size: 17px; padding: 16px; letter-spacing: 0.02em; }
+.saudacao { margin: 0; text-align: center; color: var(--texto-suave); font-size: 14px; }
+
+/* Assistente */
+.assistente { padding: 10px 16px 18px; background: var(--tela); border-top: 1px solid var(--linha); display: flex; flex-direction: column; gap: 10px; }
+.balao { margin: 0; background: var(--superficie); border: 1px solid var(--linha); border-radius: 18px 18px 18px 6px; padding: 12px 14px; font-size: 16px; line-height: 1.4; }
+.pilula { display: flex; align-items: center; gap: 8px; background: var(--superficie); border: 1px solid var(--linha); border-radius: 999px; padding: 6px 6px 6px 18px; }
+.pilula input { flex: 1; min-width: 0; border: 0; background: none; font-size: 16px; outline: none; }
+.bt-redondo { width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--verde); color: #fff; display: grid; place-items: center; flex: none; }
+.bt-redondo.ouvindo { background: var(--sos); animation: pulsar 1.2s ease-in-out infinite; }
+@keyframes pulsar { 50% { box-shadow: 0 0 0 10px rgba(200, 68, 43, 0.18); } }
+
+/* Telas internas */
+.tela { display: flex; flex-direction: column; gap: 14px; }
+.tela h2 { margin: 0; font-size: 30px; font-weight: 800; }
+.voltar { align-self: flex-start; background: none; border: 0; color: var(--verde); font-weight: 700; display: flex; align-items: center; gap: 2px; padding: 8px 0; min-height: 44px; }
+.lista { list-style: none; margin: 0; padding: 0; background: var(--superficie); border: 1px solid var(--linha); border-radius: 18px; }
+.lista li { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-bottom: 1px solid var(--linha); }
+.lista li:last-child { border-bottom: 0; }
+.lista-hora { font-size: 20px; font-weight: 700; color: var(--verde); min-width: 58px; font-variant-numeric: tabular-nums; }
+.lista-nome { display: block; font-size: 17px; font-weight: 700; flex: 1; }
+.vazio { color: var(--texto-suave); }
+.bt-icone { background: none; border: 0; color: var(--texto-suave); width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; }
+
+.novo { display: flex; flex-direction: column; gap: 10px; }
+.novo-linha { display: flex; gap: 10px; }
+.novo input, .campo input, .campo select { width: 100%; background: var(--superficie); border: 1px solid var(--linha); border-radius: 14px; padding: 13px 14px; font-size: 16px; }
+.novo-linha input { flex: 1; }
+.bt-principal { border: 0; border-radius: 14px; background: var(--verde); color: #fff; font-weight: 700; padding: 0 16px; display: flex; align-items: center; gap: 6px; }
+.bt-contorno { border: 2px solid var(--verde); border-radius: 14px; background: none; color: var(--verde); font-weight: 700; padding: 13px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.campo { display: flex; flex-direction: column; gap: 6px; }
+.dica { display: block; margin: 0; font-size: 13px; color: var(--texto-suave); }
+.chave { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--superficie); border: 1px solid var(--linha); border-radius: 18px; padding: 14px 16px; }
+.chave input { width: 24px; height: 24px; accent-color: var(--verde); }
+
+/* Alarme */
+.despertador {
+  position: absolute; inset: 0; z-index: 10; background: #12382b; color: #fff;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 32px 24px;
+}
+.rotulo.claro { color: #a9d3c0; }
+.alarme-hora { margin: 10px 0 24px; font-size: 84px; font-weight: 300; line-height: 1; letter-spacing: -2px; font-variant-numeric: tabular-nums; }
+.alarme-texto { margin: 0; font-size: 20px; color: #d5e9df; }
+.alarme-remedio { margin: 4px 0 0; font-size: 36px; font-weight: 800; }
+.alarme-botoes { margin-top: auto; width: 100%; display: flex; flex-direction: column; gap: 12px; }
+.bt-tomei { border: 0; border-radius: 999px; background: #fff; color: #12382b; font-size: 20px; font-weight: 800; padding: 18px; }
+.bt-adiar { border: 2px solid rgba(255, 255, 255, 0.5); border-radius: 999px; background: none; color: #fff; font-size: 17px; font-weight: 700; padding: 15px; }
+
+/* Letras grandes */
+.simples .relogio-hora { font-size: 84px; }
+.simples .apps { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.simples .app { font-size: 18px; }
+.simples .app-icone { width: 100%; height: 86px; border-radius: 22px; }
+.simples .balao, .simples .pilula input { font-size: 19px; }
+.simples .cartao-nome, .simples .lista-nome { font-size: 22px; }
+.simples .sos { font-size: 21px; padding: 20px; }
+
+@media (max-width: 440px) {
+  .mesa { padding: 0; }
+  .celular { width: 100%; height: 100vh; border: 0; border-radius: 0; box-shadow: none; transform: none !important; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }

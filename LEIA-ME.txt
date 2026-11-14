@@ -1,0 +1,56 @@
+CELULAR ADAPTÁVEL (React) - Museu da Evolução dos Produtos
+
+ESTRUTURA
+  src/App.jsx                      -> junta as telas e guarda os dados
+  src/components/Inicio.jsx        -> tela inicial (relógio, próximo remédio, atalhos)
+  src/components/TelaRemedios.jsx  -> lista e cadastro de remédios
+  src/components/TelaAjustes.jsx   -> nome, voz da assistente, letras grandes
+  src/components/Assistente.jsx    -> balão de resposta + microfone
+  src/components/Despertador.jsx   -> tela do alarme do remédio
+  src/components/BarraStatus.jsx   -> barra do topo (hora, sinal, bateria)
+  src/components/Icone.jsx         -> ícones desenhados
+  src/hooks/useVoz.js              -> voz: escolhe a mais natural, fala e ouve
+  src/hooks/useDespertador.js      -> vigia a hora e chama a pessoa
+  src/logica.js                    -> entende o pedido e monta a resposta
+  src/App.css                      -> visual
+
+PRECISA TER
+  Node.js instalado (versão LTS): https://nodejs.org
+
+COMO RODAR NO VS CODE
+  1. Extraia o .zip.
+  2. VS Code > File > Open Folder > pasta "celular-adaptavel-react".
+  3. Abra o terminal: Terminal > New Terminal.
+  4. Digite:  npm install     (só na primeira vez)
+  5. Digite:  npm run dev
+  6. Abra o endereço que aparecer (http://localhost:5173) no Chrome
+     e permita o microfone ao clicar no 🎤.
+  Para parar: Ctrl + C no terminal.
+
+COMANDOS DE VOZ PARA TESTAR
+  "ligar para Maria", "mensagem para João", "remédios",
+  "que horas são", "socorro"
+
+DESPERTADOR DE REMÉDIOS
+  Cadastre o remédio e o horário. Na hora certa o celular toca e a
+  assistente fala: "Vera, tá na hora do seu remédio. É o Losartana.".
+  Repete a cada 15 segundos até tocar em "Já tomei" ou "Lembrar em 5 minutos".
+  Para apresentar: Remédios > "Testar o alarme agora".
+
+VOZ REALISTA (ElevenLabs, plano grátis)
+  1. Crie uma conta grátis em elevenlabs.io.
+  2. Clique no seu perfil > API Keys > Create API Key e copie a chave.
+  3. Na pasta do projeto, copie o arquivo ".env.example" e renomeie para ".env".
+  4. Abra o .env e cole a chave em ELEVENLABS_API_KEY=
+  5. (Opcional) Troque a voz: em elevenlabs.io > Voices, escolha uma voz,
+     copie o "Voice ID" e cole em ELEVENLABS_VOICE_ID=
+  6. Pare o servidor (Ctrl + C) e rode "npm run dev" de novo.
+  Se a chave faltar ou os créditos acabarem, o app usa a voz do navegador.
+  Nunca mande o arquivo .env para ninguém nem para o GitHub.
+
+VOZ DO NAVEGADOR (RESERVA, GRÁTIS)
+  Em Ajustes > Voz da assistente, escolha uma voz e toque em "Ouvir exemplo".
+  As vozes com "Natural" (no Microsoft Edge) ou "Google" (no Chrome) soam mais humanas.
+  Obs.: a página precisa estar aberta para o alarme tocar.
+
+Obs.: ligações, mensagens e SOS são simulações.
